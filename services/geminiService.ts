@@ -136,7 +136,7 @@ export async function chatWithAI(history: ChatMessage[], message: string, langua
 }
 
 export async function searchMarketTrends(query: string, language: string) {
-  const ai = new GoogleGenAI({ apiKey: import.meta.env.VITE_API_KEY|| '' });
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY|| '' });
   const response = await ai.models.generateContent({
     model: "gemini-3-flash-preview",
     contents: `Analyze current market trends for: ${query}. Write the response in ${language}. Use Google Search to find recent data. Focus on the Indian market perspective.`,
